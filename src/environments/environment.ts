@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  features: 'http://api.citysdk.waag.org/layers/parking.garage/objects?per_page=25'
 };
 
 /*
