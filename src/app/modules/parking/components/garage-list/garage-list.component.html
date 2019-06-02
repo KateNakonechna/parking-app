@@ -15,25 +15,22 @@
     </ng-container>
     <ng-container matColumnDef="FreeSpaceShort">
       <th mat-header-cell *matHeaderCellDef> Accessibility </th>
-      <td mat-cell *matCellDef="let element"> {{element.FreeSpaceShort}} </td>
+      <td mat-cell *matCellDef="let element"  [ngStyle] = "{'color': element.FreeSpaceLong == 0 ? '#F44336':  '#81C784'}"> {{(element.FreeSpaceLong >0)?"Free" : "Full"}} </td>
     </ng-container>
     <ng-container matColumnDef="FreeSpaceLong" >
       <th mat-header-cell *matHeaderCellDef> Number of free spaces </th>
       <td mat-cell *matCellDef="let element"> {{element.FreeSpaceLong}} </td>
     </ng-container>
     <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
-      <mat-cell *matCellDef="let row">
-        <button mat-button (click)="openDialog(row)">Show on map</button>
-      </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row">  <button mat-flat-button  (click)="openDialog(row)">Show on map</button></td>
+<!--      <mat-cell *matCellDef="let row">-->
+<!--        <button mat-button (click)="openDialog(row)">Show on map</button>-->
+<!--      </mat-cell>-->
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row [ngStyle] = "{'background-color': row.FreeSpaceLong == 0 ? '#F44336':  '#81C784',
-    'display':row.FreeSpaceLong === null ? 'none': 'row'}"
-        *matRowDef="let row;  columns:
-        displayedColumns;"></tr>
+    <tr mat-row
+        *matRowDef="let row;
+        columns: displayedColumns;"></tr>
   </table>
-  <button mat-button >Open dialog</button>
 </div>
-
-<app-map></app-map>

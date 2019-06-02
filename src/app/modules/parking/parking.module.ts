@@ -15,6 +15,7 @@ import { MapComponent } from './components/map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupComponent } from './components/popup/popup.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PopupComponent } from './components/popup/popup.component';
     ApiServiceModule,
     MatDialogModule,
     MatButtonModule,
+    MatGridListModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDqXrnj73VHPl_w7z2TNKYBKGjqHzynF1k'
     })

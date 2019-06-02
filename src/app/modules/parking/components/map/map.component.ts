@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ParkingService} from '../../../api-service/services/parking/parking.service';
 import {GarageListComponent} from '../garage-list/garage-list.component';

@@ -2,10 +2,11 @@
 <h2>{{data.name}}</h2>
 
 <agm-map [latitude]="data.lat" [longitude]="data.lng" [zoom]="15">
-  <agm-marker [latitude]="data.lat" [longitude]="data.lng">
+  <agm-marker [latitude]="data.lat" [longitude]="data.lng"  [iconUrl]="iconUrl">
     <agm-info-window [isOpen]="true">
       <p><strong>{{ data.name }}</strong></p>
-      <p><strong> Total parking garage {{ data.total }}</strong></p>
+      <p><strong> Total parking garages : {{ data.total }}</strong></p>
+      <p><strong> Current available: {{ data.currentAvailable}}</strong></p>
     </agm-info-window>
   </agm-marker>
 </agm-map>

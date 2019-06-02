@@ -19,7 +19,7 @@ export class GarageListComponent implements OnInit {
   static perPage = 25;
   subscription: Subscription;
   dataSource: IData[];
-  displayedColumns = ['Name', 'FreeSpaceShort', 'FreeSpaceLong', 'actions'];
+  displayedColumns = ['Name',  'FreeSpaceShort', 'FreeSpaceLong', 'actions'];
 
   constructor(private parkingService: ParkingService,
               public dialog: MatDialog) {
@@ -34,7 +34,8 @@ export class GarageListComponent implements OnInit {
         lat: row.coordinates[1],
         lng: row.coordinates[0],
         name: row.Name,
-        total: this.dataSource.length
+        total: this.dataSource.length,
+        currentAvailable: this.currentAvailable
       }
     });
 
@@ -50,5 +51,9 @@ export class GarageListComponent implements OnInit {
     }).subscribe(data => {
       this.dataSource = data;
     });
+  }
+
+  get currentAvailable(): number {
+    return this.dataSource.filter(data => data.FreeSpaceLong > 0).length;
   }
 }

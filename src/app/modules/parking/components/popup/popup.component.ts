@@ -8,7 +8,6 @@ import * as moment from 'moment';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
-  zoom = 12;
   iconUrl = '../../../assets/pin.png';
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
