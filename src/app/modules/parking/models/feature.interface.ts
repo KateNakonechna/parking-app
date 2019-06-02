@@ -5,5 +5,4 @@ export interface IFeature {
   type: string;
   properties: IProperties;
   geometry: IGeometry;
-
 }

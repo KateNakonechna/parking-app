@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  features: 'http://api.citysdk.waag.org/layers/parking.garage/objects?per_page=25'
+  apiUrl: 'http://api.citysdk.waag.org',
+  features: 'layers/parking.garage/objects'
 };
 
 /*

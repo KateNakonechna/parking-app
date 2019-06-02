@@ -13,4 +13,8 @@ export class GarageItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  get parkingName(): string {
+    // console.log(this.feature.properties.layers['parking.garage']);
+    return this.feature.properties.layers['parking.garage'].data.Name;
+  }
 }

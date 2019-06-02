@@ -1,4 +1,4 @@
-export interface IGeometry{
+export interface IGeometry {
   type: string;
   coordinates: number[];
 }

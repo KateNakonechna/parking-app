@@ -7,4 +7,5 @@ export interface IData {
   FreeSpaceLong: number;
   ShortCapacity: number;
   LongCapacity: number;
+  coordinates: number[];
 }

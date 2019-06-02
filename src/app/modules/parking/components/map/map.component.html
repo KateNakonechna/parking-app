@@ -1,0 +1,18 @@
+<!--<agm-map [latitude]="lat" [longitude]="lng">-->
+<!--  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>-->
+<!--</agm-map>-->
+
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom">
+  <agm-marker
+    *ngFor="let marker of coordinates; let i = index"
+    [latitude]="marker[1]"
+    [longitude]="marker[0]"
+    [iconUrl]="iconUrl">
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
