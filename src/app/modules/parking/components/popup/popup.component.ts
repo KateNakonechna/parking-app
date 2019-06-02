@@ -1,18 +1,17 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material';
-import * as moment from 'moment';
+import {Info} from '../../models/info.model';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.scss']
+  styleUrls: ['./popup.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PopupComponent implements OnInit {
-  iconUrl = '../../../assets/pin.png';
+export class PopupComponent {
+  iconUrl = environment.parkingIconUrl;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  ngOnInit() {
-    console.log(this.data);
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Info) {
   }
 }

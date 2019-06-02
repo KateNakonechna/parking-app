@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://api.citysdk.waag.org',
-  features: 'layers/parking.garage/objects'
+  features: 'layers/parking.garage/objects',
+  parkingIconUrl: '../../../assets/pin.png',
 };
 
 /*

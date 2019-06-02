@@ -1,4 +1,7 @@
+<app-header></app-header>
+
 <div class="container">
-  <app-garage-list></app-garage-list>
-  <app-map></app-map>
+  <app-garage-list [dataSource]="dataSource$ | async"></app-garage-list>
+  <app-map [data]="dataSource$ | async"></app-map>
 </div>
+

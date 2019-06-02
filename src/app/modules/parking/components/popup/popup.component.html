@@ -1,8 +1,6 @@
-<!--<mat-dialog-content >-->
 <h2>{{data.name}}</h2>
-
 <agm-map [latitude]="data.lat" [longitude]="data.lng" [zoom]="15">
-  <agm-marker [latitude]="data.lat" [longitude]="data.lng"  [iconUrl]="iconUrl">
+  <agm-marker [latitude]="data.lat" [longitude]="data.lng" [iconUrl]="iconUrl">
     <agm-info-window [isOpen]="true">
       <p><strong>{{ data.name }}</strong></p>
       <p><strong> Total parking garages : {{ data.total }}</strong></p>
@@ -11,4 +9,3 @@
   </agm-marker>
 </agm-map>
 
-<!--</mat-dialog-content>-->

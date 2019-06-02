@@ -1,7 +1,7 @@
-import {IFeature} from './feature.interface';
+import {Feature} from './feature.model';
 import {FeatureType} from '../enums/feture-type.enum';
 
 export interface FeatureResponse {
-  features: IFeature[];
+  features: Feature[];
   type: FeatureType.collection;
 }

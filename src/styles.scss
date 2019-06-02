@@ -1,3 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~normalize.css/normalize.css';
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}

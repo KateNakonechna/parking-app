@@ -1,33 +1,24 @@
-import {Component, OnInit} from '@angular/core';
-import {ParkingService} from '../../../api-service/services/parking/parking.service';
-import {from, of, Subscription} from 'rxjs';
-import {IProperties} from '../../models/properties.interface';
-import {IGeometry} from '../../models/geometry.interface';
-import {IFeature} from '../../models/feature.interface';
-import {IData} from '../../models/data.interface';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Data} from '../../models/data.model';
 import {MatDialog} from '@angular/material/dialog';
-import {MapComponent} from '../map/map.component';
 import {PopupComponent} from '../popup/popup.component';
-import {filter, map, pluck} from 'rxjs/operators';
 
 @Component({
   selector: 'app-garage-list',
   templateUrl: './garage-list.component.html',
-  styleUrls: ['./garage-list.component.scss']
+  styleUrls: ['./garage-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GarageListComponent implements OnInit {
+export class GarageListComponent {
   static perPage = 25;
-  subscription: Subscription;
-  dataSource: IData[];
-  displayedColumns = ['Name',  'FreeSpaceShort', 'FreeSpaceLong', 'actions'];
+  displayedColumns = ['Name', 'FreeSpaceShort', 'FreeSpaceLong', 'actions'];
 
-  constructor(private parkingService: ParkingService,
-              public dialog: MatDialog) {
-  }
+  @Input() dataSource: Data[] = [];
 
-  openDialog(row: IData) {
-    console.log(row);
-    const dialogRef = this.dialog.open(PopupComponent, {
+  constructor(private readonly dialog: MatDialog) {}
+
+  openDialog(row: Data): void {
+    this.dialog.open(PopupComponent, {
       height: '440px',
       width: '700px',
       data: {
@@ -35,25 +26,12 @@ export class GarageListComponent implements OnInit {
         lng: row.coordinates[0],
         name: row.Name,
         total: this.dataSource.length,
-        currentAvailable: this.currentAvailable
+        currentAvailable: this.currentAvailableLength,
       }
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
-  ngOnInit() {
-    this.subscription = this.parkingService.getFeatures({
-      per_page: GarageListComponent.perPage,
-      page: 1
-    }).subscribe(data => {
-      this.dataSource = data;
-    });
-  }
-
-  get currentAvailable(): number {
+  get currentAvailableLength(): number {
     return this.dataSource.filter(data => data.FreeSpaceLong > 0).length;
   }
 }

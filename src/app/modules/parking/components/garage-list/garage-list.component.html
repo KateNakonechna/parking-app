@@ -1,36 +1,34 @@
-<!--<ng-container *ngIf="features">-->
-<!--  <app-garage-item-->
-<!--    *ngFor="let feature of features"-->
-<!--    [feature]="feature">-->
-<!--  </app-garage-item>-->
-<!--</ng-container>-->
+<div class="example-container mat-elevation-z8" [ngClass]="{preloader: !dataSource.length}">
+    <mat-progress-spinner
+      *ngIf="!dataSource.length"
+      color="primary"
+      mode="indeterminate">
+    </mat-progress-spinner>
 
-<!--*ngFor="let feature of (parkingService.features | async)"-->
-
-<div class="example-container mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" >
+  <table *ngIf="dataSource.length" mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="Name">
-      <th mat-header-cell *matHeaderCellDef> Parking name  </th>
+      <th mat-header-cell *matHeaderCellDef> Parking name</th>
       <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
     </ng-container>
     <ng-container matColumnDef="FreeSpaceShort">
-      <th mat-header-cell *matHeaderCellDef> Accessibility </th>
-      <td mat-cell *matCellDef="let element"  [ngStyle] = "{'color': element.FreeSpaceLong == 0 ? '#F44336':  '#81C784'}"> {{(element.FreeSpaceLong >0)?"Free" : "Full"}} </td>
+      <th mat-header-cell *matHeaderCellDef> Availability</th>
+      <td mat-cell *matCellDef="let element"
+          [ngStyle]="{'color': element.FreeSpaceLong | setTextFreeSpaceColor}"> {{element.FreeSpaceLong | setTextFreeSpaceLong}} </td>
     </ng-container>
-    <ng-container matColumnDef="FreeSpaceLong" >
-      <th mat-header-cell *matHeaderCellDef> Number of free spaces </th>
+    <ng-container matColumnDef="FreeSpaceLong">
+      <th mat-header-cell *matHeaderCellDef> Number of free spaces</th>
       <td mat-cell *matCellDef="let element"> {{element.FreeSpaceLong}} </td>
     </ng-container>
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let row">  <button mat-flat-button  (click)="openDialog(row)">Show on map</button></td>
-<!--      <mat-cell *matCellDef="let row">-->
-<!--        <button mat-button (click)="openDialog(row)">Show on map</button>-->
-<!--      </mat-cell>-->
+      <td mat-cell *matCellDef="let row">
+        <button mat-flat-button (click)="openDialog(row)">Show on map</button>
+      </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row
         *matRowDef="let row;
-        columns: displayedColumns;"></tr>
+        columns: displayedColumns;">
+    </tr>
   </table>
 </div>

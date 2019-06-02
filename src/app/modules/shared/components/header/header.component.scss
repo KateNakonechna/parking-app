@@ -1,0 +1,15 @@
+@import "../../../../../assets/styles/variables";
+.wrapper{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  min-height: 70px;
+  background-color: $darkblue;
+
+}
+.title{
+  text-align: center;
+  font-family: 'Roboto', serif;
+}

@@ -1,4 +1,4 @@
-export interface IData {
+export interface Data {
   Name: string;
   PubDate: string;
   Type: string;
@@ -8,4 +8,5 @@ export interface IData {
   ShortCapacity: number;
   LongCapacity: number;
   coordinates: number[];
+
 }
