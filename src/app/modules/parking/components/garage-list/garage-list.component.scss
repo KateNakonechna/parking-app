@@ -1,4 +1,5 @@
 @import "../../../../../assets/styles/variables";
+
 :host {
   width: 50%;
   display: flex;
@@ -28,7 +29,8 @@ table {
 .mat-flat-button {
   background-color: $lightblue;
 }
-.preloader{
+
+.preloader {
   display: flex;
   justify-content: center;
   align-items: center;

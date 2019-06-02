@@ -1,11 +1,10 @@
-<div class="example-container mat-elevation-z8" [ngClass]="{preloader: !dataSource.length}">
-    <mat-progress-spinner
-      *ngIf="!dataSource.length"
-      color="primary"
-      mode="indeterminate">
-    </mat-progress-spinner>
-
-  <table *ngIf="dataSource.length" mat-table [dataSource]="dataSource">
+<div class="example-container mat-elevation-z8" [ngClass]="{preloader: !dataSourceLength}">
+  <mat-progress-spinner
+    *ngIf="!dataSourceLength"
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
+  <table *ngIf="dataSourceLength" mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="Name">
       <th mat-header-cell *matHeaderCellDef> Parking name</th>
       <td mat-cell *matCellDef="let element"> {{element.Name}} </td>

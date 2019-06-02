@@ -34,4 +34,8 @@ export class GarageListComponent {
   get currentAvailableLength(): number {
     return this.dataSource.filter(data => data.FreeSpaceLong > 0).length;
   }
+
+  get dataSourceLength(): number {
+    return this.dataSource ? this.dataSource.length : 0;
+  }
 }

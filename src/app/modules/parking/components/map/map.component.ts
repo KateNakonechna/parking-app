@@ -17,6 +17,6 @@ export class MapComponent {
   iconUrl = environment.parkingIconUrl;
 
   get coordinates(): number[][] {
-    return this.data.map((feature) => feature.coordinates);
+    return this.data ? this.data.map((feature) => feature.coordinates) : [];
   }
 }
