@@ -22,7 +22,7 @@ import { SetTextFreeSpaceColorPipe } from './pipes/set-text-free-space-color/set
     ParkingRoutingModule,
     ApiServiceModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDqXrnj73VHPl_w7z2TNKYBKGjqHzynF1k'
+      apiKey: ''
     })
   ],
   providers: []
